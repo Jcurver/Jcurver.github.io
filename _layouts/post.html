@@ -181,56 +181,19 @@ script_includes:
   <!-- div.post-tail-wrapper -->
 </article>
 
-<div id="giscus-container" />
-
-<script>
-  // Giscus script를 동적으로 삽입하는 함수
-  function loadGiscusScript(isDarkMode) {
-    // 기존 script 태그를 제거
-    const existingScript = document.querySelector(
-      "script[src='https://giscus.app/client.js']"
-    );
-    if (existingScript) {
-      existingScript.remove();
-    }
-
-    // 새로운 script 태그 생성
-    const script = document.createElement("script");
-    script.src = "https://giscus.app/client.js";
-    script.setAttribute("data-repo", "jcurver/jcurver.github.io");
-    script.setAttribute("data-repo-id", "R_kgDONwTdfQ");
-    script.setAttribute("data-category", "Announcements");
-    script.setAttribute("data-category-id", "DIC_kwDONwTdfc4CmYp0");
-    script.setAttribute("data-mapping", "pathname");
-    script.setAttribute("data-strict", "0");
-    script.setAttribute("data-reactions-enabled", "1");
-    script.setAttribute("data-emit-metadata", "0");
-    script.setAttribute("data-input-position", "top");
-    script.setAttribute("data-lang", "en");
-
-    // 테마 설정
-    script.setAttribute("data-theme", isDarkMode ? "dark" : "light");
-
-    // 필수 속성들
-    script.setAttribute("crossorigin", "anonymous");
-    script.async = true;
-
-    // giscus-container에 삽입
-    const giscusContainer = document.getElementById("giscus-container");
-    if (giscusContainer) {
-      giscusContainer.innerHTML = ""; // 기존 콘텐츠 삭제
-      giscusContainer.appendChild(script); // 새로운 script 삽입
-    }
-  }
-
-  // Theme.DARK 여부에 따라 초기 스크립트 로드
-  loadGiscusScript(Theme.visualState === Theme.DARK);
-
-  // Theme 변경 시 동적으로 테마 변경
-  const modeToggleButton = document.getElementById("mode-toggle");
-  if (modeToggleButton) {
-    modeToggleButton.addEventListener("click", () => {
-      loadGiscusScript(Theme.visualState !== Theme.DARK); // 테마 변경 후 Giscus 스크립트 새로 로드
-    });
-  }
-</script>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jcurver/jcurver.github.io"
+  data-repo-id="R_kgDONwTdfQ"
+  data-category="Announcements"
+  data-category-id="DIC_kwDONwTdfc4CmYp0"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark"
+  data-lang="en"
+  crossorigin="anonymous"
+  async
+></script>
