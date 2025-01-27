@@ -5,3 +5,4 @@ basic();
 initSidebar();
 initTopbar();
 categoryCollapse();
+console.log('components loaded');
