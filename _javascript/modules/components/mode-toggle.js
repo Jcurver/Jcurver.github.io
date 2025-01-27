@@ -10,6 +10,6 @@ export function modeWatcher() {
   }
 
   $toggle.addEventListener('click', () => {
-    // Theme.flip();
+    Theme.flip();
   });
 }
