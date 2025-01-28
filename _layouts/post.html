@@ -185,7 +185,7 @@ script_includes:
   src="https://utteranc.es/client.js"
   repo="jcurver/jcurver.github.io"
   issue-term="pathname"
-  theme="github-light"
+  theme="github-dark"
   crossorigin="anonymous"
   async
 ></script>
@@ -222,12 +222,13 @@ script_includes:
   // iframe 존재 확인 후 이벤트 실행
   const checkIframeReady = () => {
     const iframe = document.querySelector("iframe.utterances-frame");
+    const newMode = htmlElement.getAttribute("data-mode");
     if (iframe?.contentWindow?.postMessage) {
       const iframeOrigin = new URL(iframe.src).origin;
       iframe.contentWindow?.postMessage(
         {
           type: "set-theme",
-          theme: "github-dark"
+          theme: newMode ? "github-light" : "github-dark"
         },
         iframeOrigin
       );
@@ -241,4 +242,12 @@ script_includes:
   setTimeout(() => {
     checkIframeReady();
   }, 200);
+
+  setTimeout(() => {
+    checkIframeReady();
+  }, 500);
+
+  setTimeout(() => {
+    checkIframeReady();
+  }, 800);
 </script>
