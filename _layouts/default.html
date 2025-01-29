@@ -16,10 +16,6 @@ endif %}
   }}
 >
   {% include head.html %}
-  <meta
-    name="google-site-verification"
-    content="FxCdXb42rmBULoW3LtRfs1otPjb7BkK_gBwQCE0vdkE"
-  />
   <body>
     {% include sidebar.html lang=lang %}
 
@@ -59,7 +55,8 @@ endif %}
           <div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 px-md-4">
             {% for _include in layout.tail_includes %} {% assign _include_path =
             _include | append: '.html' %} {% include {{ _include_path }}
-            lang=lang %} {% endfor %} {% include_cached footer.html lang=lang %}
+            lang=lang %} {% endfor %} {% unless page.url != "/about/" %} {%
+            include_cached footer.html lang=lang %} {% endunless %}
           </div>
         </div>
 
