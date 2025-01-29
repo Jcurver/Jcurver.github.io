@@ -219,7 +219,7 @@ script_includes:
     attributeFilter: ["data-mode"]
   };
   observer.observe(htmlElement, config);
-  // iframe 존재 확인 후 이벤트 실행
+  // iframe 존재 확인 후 이벤트 실행.
   const checkIframeReady = () => {
     const iframe = document.querySelector("iframe.utterances-frame");
     const newMode = htmlElement.getAttribute("data-mode");
